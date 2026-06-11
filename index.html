@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DE Digital — KOBİ'ler için Otomasyon Sistemleri</title>
-  <meta name="description" content="KOBİ'ler için iş otomasyonu: teklif hazırlama, müşteri takibi, WhatsApp karşılama ve hatırlatma sistemleri. 15 dakikalık ücretsiz keşif, aynı gün teklif.">
-  <meta property="og:title" content="DE Digital — KOBİ'ler için Otomasyon Sistemleri">
-  <meta property="og:description" content="KOBİ'ler için iş otomasyonu: teklif hazırlama, müşteri takibi, WhatsApp karşılama ve hatırlatma sistemleri. 15 dakikalık ücretsiz keşif, aynı gün teklif.">
+  <title>DE Digital | AI Servis Raporu ve Bakım Takip Sistemi</title>
+  <meta name="description" content="Yangın ve teknik servis firmaları için AI destekli servis raporu ve bakım takip sistemi. Teknisyen notundan servis raporu, müşteri özeti, teklif notu ve takip kaydı oluşturun.">
+  <meta name="keywords" content="AI servis raporu, bakım takip sistemi, yangın bakım takip, teknik servis raporu, servis raporu otomasyonu, yangın algılama bakım, teknik servis takip">
+  <meta property="og:title" content="DE Digital | AI Servis Raporu ve Bakım Takip Sistemi">
+  <meta property="og:description" content="Yangın ve teknik servis firmaları için AI destekli servis raporu ve bakım takip sistemi. Teknisyen notundan servis raporu, müşteri özeti, teklif notu ve takip kaydı oluşturun.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="tr_TR">
   <meta property="og:image" content="https://dedigital.dev/assets/logo.png">
-  <meta name="theme-color" content="#0A0A0A">
+  <meta name="theme-color" content="#08111F">
   <link rel="icon" type="image/png" href="assets/favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -23,26 +24,42 @@
       theme: {
         extend: {
           colors: {
-            ink: '#0A0A0A',
+            ink: '#08111F',
+            panel: '#0E1A2D',
+            line: '#D8E0EA',
             accent: {
-              DEFAULT: '#3B82F6',
-              light: '#60A5FA'
+              DEFAULT: '#2563EB',
+              light: '#60A5FA',
+              soft: '#DBEAFE'
+            },
+            signal: {
+              green: '#14B8A6',
+              amber: '#F59E0B'
             }
           },
           fontFamily: {
             sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
             display: ['"Space Grotesk"', 'Inter', 'sans-serif']
+          },
+          boxShadow: {
+            panel: '0 24px 70px -36px rgba(8, 17, 31, 0.45)'
           }
         }
       }
     }
   </script>
   <style type="text/tailwindcss">
-    a:focus-visible, button:focus-visible {
+    a:focus-visible, button:focus-visible, summary:focus-visible {
       @apply outline outline-2 outline-offset-2 outline-accent;
     }
     header.is-scrolled {
-      @apply bg-ink/95 shadow-lg shadow-black/30;
+      @apply border-slate-200 bg-white/95 shadow-sm;
+    }
+    .technical-grid {
+      background-image:
+        linear-gradient(rgba(37, 99, 235, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+      background-size: 28px 28px;
     }
     .js [data-reveal] {
       opacity: 0;
@@ -54,6 +71,9 @@
       opacity: 1;
       transform: translateY(0);
     }
+    details[open] summary svg {
+      transform: rotate(45deg);
+    }
     @media (prefers-reduced-motion: reduce) {
       .js [data-reveal] {
         opacity: 1;
@@ -64,22 +84,31 @@
   </style>
   <script>document.documentElement.classList.add('js');</script>
 </head>
-<body id="top" class="bg-ink font-sans text-zinc-300 antialiased selection:bg-accent selection:text-ink">
+<body id="top" class="bg-slate-50 font-sans text-slate-700 antialiased selection:bg-accent selection:text-white">
 
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
     <symbol id="icon-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></symbol>
   </svg>
 
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink">İçeriğe atla</a>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">İçeriğe atla</a>
 
-  <!-- Nav -->
-  <header class="sticky top-0 z-40 border-b border-white/5 bg-ink/80 backdrop-blur-md transition duration-300">
-    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-      <a href="#top" class="flex items-center" aria-label="DE Digital — sayfanın başına dön">
+  <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-md transition duration-300">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
+      <a href="#top" class="flex items-center" aria-label="DE Digital - sayfanın başına dön">
         <img src="assets/logo.png" alt="DE Digital" width="500" height="440" loading="eager" decoding="async" class="h-10 w-auto">
       </a>
-      <a href="https://wa.me/905411332042?text=Merhaba%2C%20i%C5%9Fletmem%20i%C3%A7in%20otomasyon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener"
-         class="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-ink transition hover:bg-accent-light active:scale-[0.98]">
+      <nav class="hidden items-center gap-7 text-sm font-medium text-slate-600 lg:flex" aria-label="Ana menü">
+        <a href="#problem" class="transition hover:text-ink">Problem</a>
+        <a href="#cozum" class="transition hover:text-ink">Akış</a>
+        <a href="#bakim" class="transition hover:text-ink">Bakım Takip</a>
+        <a href="#pilot" class="transition hover:text-ink">Pilot</a>
+        <a href="#sss" class="transition hover:text-ink">SSS</a>
+      </nav>
+      <a href="https://wa.me/905411332042?text=Merhaba%2C%20AI%20servis%20raporu%20ve%20bak%C4%B1m%20takip%20sistemi%20i%C3%A7in%20demo%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 active:scale-[0.98]">
         <svg class="h-4 w-4" fill="currentColor" aria-hidden="true"><use href="#icon-wa"/></svg>
         <span>WhatsApp</span><span class="sr-only"> (yeni sekmede açılır)</span>
       </a>
@@ -88,190 +117,469 @@
 
   <main id="main">
 
-    <!-- Hero -->
-    <section class="relative overflow-hidden pb-24 pt-20 sm:pb-32 sm:pt-28">
-      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div class="absolute left-1/2 top-[-14rem] h-[30rem] w-[46rem] -translate-x-1/2 rounded-full bg-accent-light/15 blur-[140px]"></div>
+    <section class="technical-grid relative overflow-hidden border-b border-slate-200 bg-white">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1fr_0.92fr] lg:py-24">
+        <div data-reveal>
+          <p class="inline-flex items-center rounded-md border border-blue-100 bg-accent-soft px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-accent">
+            İstanbul / Kocaeli / Gebze teknik servis firmaları için
+          </p>
+          <h1 class="mt-7 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            Teknisyenin notundan servis raporu oluşturun
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 sm:text-xl">
+            Yangın ve teknik servis firmaları için AI destekli servis raporu ve bakım takip sistemi. Sahadan gelen kısa notu servis raporuna, müşteri özetine, teklif notuna ve bakım takip kaydına çevirir.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="mailto:info@dedigital.dev?subject=AI%20Servis%20Raporu%20Demo%20Gorusmesi&body=Merhaba%2C%20AI%20servis%20raporu%20ve%20bakim%20takip%20sistemi%20icin%20demo%20gorusmesi%20talep%20ediyorum."
+               class="inline-flex items-center justify-center gap-2 rounded-md bg-ink px-6 py-3.5 text-base font-semibold text-white transition hover:bg-slate-800 active:scale-[0.98]">
+              Demoyu Görüşelim
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-arrow"/></svg>
+            </a>
+            <a href="https://wa.me/905411332042?text=Merhaba%2C%20AI%20servis%20raporu%20ve%20bak%C4%B1m%20takip%20sistemi%20i%C3%A7in%20demo%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener"
+               class="inline-flex items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-ink transition hover:border-accent hover:text-accent active:scale-[0.98]">
+              <svg class="h-5 w-5 text-[#25D366]" fill="currentColor" aria-hidden="true"><use href="#icon-wa"/></svg>
+              WhatsApp'tan Yaz<span class="sr-only"> (yeni sekmede açılır)</span>
+            </a>
+          </div>
+          <p class="mt-6 max-w-xl text-sm font-medium leading-relaxed text-slate-600">
+            Genel servis takip yazılımı değil; teknik servis firmalarına özel rapor ve takip akışı.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-slate-200 bg-white p-5 shadow-panel sm:p-6" data-reveal data-reveal-delay="100" aria-label="Örnek servis notu dönüşümü">
+          <div class="flex items-center justify-between gap-4 border-b border-slate-200 pb-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent">Demo Akışı</p>
+              <h2 class="mt-1 font-display text-xl font-semibold text-ink">Tek nottan düzenli çıktı</h2>
+            </div>
+            <span class="rounded-md bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">AI yapılandırır</span>
+          </div>
+          <div class="mt-5">
+            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Girdi</p>
+            <blockquote class="mt-2 border-l-4 border-accent bg-slate-50 p-4 text-sm leading-relaxed text-slate-700">
+              "ABC Plaza'da yangın algılama bakımı yapıldı. 24 dedektör test edildi. 2 dedektör arızalı, panel bataryası zayıf. Müşteriye teklif hazırlanacak."
+            </blockquote>
+          </div>
+          <div class="mt-5">
+            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Çıktı</p>
+            <ul class="mt-3 grid gap-3 sm:grid-cols-2">
+              <li class="flex items-center gap-2 border border-slate-200 bg-white px-3 py-3 text-sm font-semibold text-ink">
+                <svg class="h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>
+                Servis raporu
+              </li>
+              <li class="flex items-center gap-2 border border-slate-200 bg-white px-3 py-3 text-sm font-semibold text-ink">
+                <svg class="h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>
+                Müşteri özeti
+              </li>
+              <li class="flex items-center gap-2 border border-slate-200 bg-white px-3 py-3 text-sm font-semibold text-ink">
+                <svg class="h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>
+                Teklif notu
+              </li>
+              <li class="flex items-center gap-2 border border-slate-200 bg-white px-3 py-3 text-sm font-semibold text-ink">
+                <svg class="h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>
+                Takip kaydı
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="relative mx-auto max-w-4xl px-5 text-center sm:px-8" data-reveal>
-        <p class="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-zinc-400">
-          KOBİ'ler için Otomasyon
-        </p>
-        <h1 class="mt-8 font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-          İşletmenizdeki angarya işleri <span class="text-accent">otomasyona devredin</span>
-        </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
-          Teklifler, müşteri takibi, hatırlatmalar, raporlar — WhatsApp ve Excel arasında kaybolan her işi tek sisteme bağlıyoruz. Siz işinize odaklanın.
-        </p>
-        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="https://wa.me/905411332042?text=Merhaba%2C%20i%C5%9Fletmem%20i%C3%A7in%20otomasyon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener"
-             class="inline-flex items-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-base font-semibold text-ink transition hover:bg-accent-light active:scale-[0.98]">
-            <svg class="h-5 w-5" fill="currentColor" aria-hidden="true"><use href="#icon-wa"/></svg>
-            WhatsApp'tan Teklif Al<span class="sr-only"> (yeni sekmede açılır)</span>
+    </section>
+
+    <section id="problem" class="scroll-mt-24 border-b border-slate-200 bg-slate-50 py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="max-w-3xl" data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-accent">Problem</p>
+          <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Servis sonrası rapor işi hâlâ dağınık mı?</h2>
+          <p class="mt-5 text-lg leading-relaxed text-slate-600">
+            Teknisyen sahada işi yapar, ama rapor eksik kalır. Ofis sonradan "ne yapıldı, ne arızalıydı, müşteriye ne teklif edilecek?" diye bilgi toplamaya çalışır. Bu sırada teklif fırsatları ve bakım takipleri kaybolabilir.
+          </p>
+        </div>
+        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="rounded-lg border border-slate-200 bg-white p-5" data-reveal>
+            <span class="flex h-10 w-10 items-center justify-center rounded-md bg-amber-50 text-amber-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-lg font-semibold text-ink">Teknisyen raporu geç veya eksik doldurur</h3>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-5" data-reveal data-reveal-delay="75">
+            <span class="flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-accent">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-lg font-semibold text-ink">Ofis WhatsApp notlarından rapor toparlar</h3>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-5" data-reveal data-reveal-delay="150">
+            <span class="flex h-10 w-10 items-center justify-center rounded-md bg-rose-50 text-rose-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-lg font-semibold text-ink">Müşteriye gönderilecek özet gecikir</h3>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-5" data-reveal>
+            <span class="flex h-10 w-10 items-center justify-center rounded-md bg-amber-50 text-amber-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-lg font-semibold text-ink">Teklif çıkacak arızalar unutulur</h3>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-5" data-reveal data-reveal-delay="75">
+            <span class="flex h-10 w-10 items-center justify-center rounded-md bg-teal-50 text-teal-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-lg font-semibold text-ink">Bakım takip kaydı güncellenmez</h3>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-5" data-reveal data-reveal-delay="150">
+            <span class="flex h-10 w-10 items-center justify-center rounded-md bg-slate-100 text-slate-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-lg font-semibold text-ink">Hangi işin kimde kaldığı belirsizleşir</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cozum" class="scroll-mt-24 bg-white py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="grid gap-12 lg:grid-cols-[0.72fr_1fr] lg:items-start">
+          <div class="max-w-xl" data-reveal>
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-accent">Çözüm</p>
+            <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Teknisyen konuşur, sistem yazar</h2>
+            <p class="mt-5 text-lg leading-relaxed text-slate-600">
+              AI servis raporu akışı, sahadaki kısa teknik notu önce düzenler, sonra rapor ve teknik servis takip kaydı olarak kullanılabilir hale getirir.
+            </p>
+          </div>
+          <ol class="grid gap-5 md:grid-cols-2">
+            <li class="rounded-lg border border-slate-200 bg-slate-50 p-6" data-reveal>
+              <span class="font-display text-3xl font-bold text-accent">01</span>
+              <h3 class="mt-4 font-display text-xl font-semibold text-ink">Teknisyen sahadan kısa not girer</h3>
+              <p class="mt-3 leading-relaxed text-slate-600">Sesli not veya metin olarak yapılan işlem ve tespitleri yazar.</p>
+            </li>
+            <li class="rounded-lg border border-slate-200 bg-slate-50 p-6" data-reveal data-reveal-delay="75">
+              <span class="font-display text-3xl font-bold text-accent">02</span>
+              <h3 class="mt-4 font-display text-xl font-semibold text-ink">AI notu yapılandırır</h3>
+              <p class="mt-3 leading-relaxed text-slate-600">Yapılan işlemler, tespitler, önerilen aksiyonlar ve eksik bilgiler ayrıştırılır.</p>
+            </li>
+            <li class="rounded-lg border border-slate-200 bg-slate-50 p-6" data-reveal>
+              <span class="font-display text-3xl font-bold text-accent">03</span>
+              <h3 class="mt-4 font-display text-xl font-semibold text-ink">Rapor ve mesajlar oluşur</h3>
+              <p class="mt-3 leading-relaxed text-slate-600">Servis raporu, müşteri özeti ve iç teklif notu hazırlanır.</p>
+            </li>
+            <li class="rounded-lg border border-slate-200 bg-slate-50 p-6" data-reveal data-reveal-delay="75">
+              <span class="font-display text-3xl font-bold text-accent">04</span>
+              <h3 class="mt-4 font-display text-xl font-semibold text-ink">Takip kaydı güncellenir</h3>
+              <p class="mt-3 leading-relaxed text-slate-600">Durum, sorumlu, son temas ve sonraki aksiyon bakım takip ekranına bağlanır.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="ciktilar" class="border-y border-slate-200 bg-slate-50 py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="max-w-3xl" data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-accent">Çıktılar</p>
+          <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Tek bir nottan dört çıktı</h2>
+        </div>
+        <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <article class="rounded-lg border border-slate-200 bg-white p-6" data-reveal>
+            <div class="flex h-11 w-11 items-center justify-center rounded-md bg-blue-50 text-accent">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h8"/><path d="M8 17h6"/></svg>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-semibold text-ink">Servis Raporu</h3>
+            <p class="mt-3 leading-relaxed text-slate-600">Yapılan işlem, test edilen ekipman, tespit edilen arızalar ve önerilen aksiyonlar düzenli rapora dönüşür.</p>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-6" data-reveal data-reveal-delay="75">
+            <div class="flex h-11 w-11 items-center justify-center rounded-md bg-teal-50 text-teal-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-semibold text-ink">Müşteri Özeti</h3>
+            <p class="mt-3 leading-relaxed text-slate-600">Müşteriye gönderilecek profesyonel ve anlaşılır mesaj hazırlanır.</p>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-6" data-reveal data-reveal-delay="150">
+            <div class="flex h-11 w-11 items-center justify-center rounded-md bg-amber-50 text-amber-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v8"/><path d="M8 12h8"/><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-semibold text-ink">Teklif Notu</h3>
+            <p class="mt-3 leading-relaxed text-slate-600">Değişmesi gereken parça, eksik ekipman veya önerilen işlem satış/ofis ekibine not olarak çıkar.</p>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-6" data-reveal data-reveal-delay="225">
+            <div class="flex h-11 w-11 items-center justify-center rounded-md bg-slate-100 text-slate-700">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h3 class="mt-5 font-display text-xl font-semibold text-ink">Bakım Takip Kaydı</h3>
+            <p class="mt-3 leading-relaxed text-slate-600">Son temas, durum, sorumlu kişi, sonraki bakım ve takip aksiyonu kayda alınır.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="bakim" class="scroll-mt-24 bg-white py-20 sm:py-24">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-accent">Bakım takip modülü</p>
+          <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Rapor oluşturmakla kalmaz, takibi de kayda alır</h2>
+          <p class="mt-5 text-lg leading-relaxed text-slate-600">
+            Servis sonrası oluşan bilgiler bakım takip ekranına bağlanır. Böylece yaklaşan/geciken bakımlar, sorumlu kişi, son temas ve tahmini bakım bedeli tek yerden takip edilir.
+          </p>
+        </div>
+        <div class="rounded-lg border border-slate-200 bg-slate-50 p-5 sm:p-6" data-reveal data-reveal-delay="100">
+          <div class="grid gap-3 sm:grid-cols-2">
+            <div class="border border-slate-200 bg-white p-4">
+              <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Bugün</p>
+              <p class="mt-2 font-display text-2xl font-bold text-ink">Teklif hazırlanacak</p>
+              <p class="mt-1 text-sm text-slate-600">ABC Plaza - Yangın algılama</p>
+            </div>
+            <div class="border border-slate-200 bg-white p-4">
+              <p class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Sonraki bakım</p>
+              <p class="mt-2 font-display text-2xl font-bold text-ink">6 ay sonra</p>
+              <p class="mt-1 text-sm text-slate-600">Sorumlu: Servis / satış</p>
+            </div>
+          </div>
+          <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+            <li class="flex items-start gap-3 text-sm font-medium text-slate-700">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>
+              Yaklaşan ve geciken bakım listesi
+            </li>
+            <li class="flex items-start gap-3 text-sm font-medium text-slate-700">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>
+              Sorumlu kişi takibi
+            </li>
+            <li class="flex items-start gap-3 text-sm font-medium text-slate-700">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>
+              Son temas durumu
+            </li>
+            <li class="flex items-start gap-3 text-sm font-medium text-slate-700">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>
+              Tahmini bakım bedeli
+            </li>
+            <li class="flex items-start gap-3 text-sm font-medium text-slate-700">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>
+              Hazır WhatsApp mesajı
+            </li>
+            <li class="flex items-start gap-3 text-sm font-medium text-slate-700">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>
+              Günlük / haftalık takip görünümü
+            </li>
+            <li class="flex items-start gap-3 text-sm font-medium text-slate-700 sm:col-span-2">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>
+              Teklif hazırlanacak işler listesi
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="kimler-icin" class="border-y border-slate-200 bg-slate-50 py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="max-w-3xl" data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-accent">Kimler için</p>
+          <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Özellikle periyodik bakım yapan teknik servis firmaları için</h2>
+          <p class="mt-5 text-lg leading-relaxed text-slate-600">
+            Ana odak yangın algılama ve gaz algılama bakım firmalarıdır. Aynı servis raporu otomasyonu, benzer periyodik bakım süreçleri olan teknik ekipler için de uyarlanabilir.
+          </p>
+        </div>
+        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="rounded-lg border-2 border-accent bg-white p-6" data-reveal>
+            <p class="text-xs font-bold uppercase tracking-[0.14em] text-accent">Ana odak</p>
+            <h3 class="mt-3 font-display text-xl font-semibold text-ink">Yangın algılama firmaları</h3>
+          </article>
+          <article class="rounded-lg border-2 border-accent bg-white p-6" data-reveal data-reveal-delay="75">
+            <p class="text-xs font-bold uppercase tracking-[0.14em] text-accent">Ana odak</p>
+            <h3 class="mt-3 font-display text-xl font-semibold text-ink">Gaz algılama bakım firmaları</h3>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-6" data-reveal data-reveal-delay="150">
+            <h3 class="font-display text-xl font-semibold text-ink">Yangın söndürme / sprinkler firmaları</h3>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-6" data-reveal>
+            <h3 class="font-display text-xl font-semibold text-ink">Acil anons sistemleri firmaları</h3>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-6" data-reveal data-reveal-delay="75">
+            <h3 class="font-display text-xl font-semibold text-ink">Klima / HVAC servisleri</h3>
+          </article>
+          <article class="rounded-lg border border-slate-200 bg-white p-6" data-reveal data-reveal-delay="150">
+            <h3 class="font-display text-xl font-semibold text-ink">Jeneratör ve endüstriyel bakım firmaları</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="max-w-3xl" data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-accent">Karşılaştırma</p>
+          <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">WhatsApp notlarından rapor toplamayı bırakın</h2>
+        </div>
+        <div class="mt-12 grid gap-6 lg:grid-cols-2">
+          <div class="rounded-lg border border-slate-200 bg-slate-50 p-6" data-reveal>
+            <h3 class="font-display text-2xl font-semibold text-ink">Eski yöntem</h3>
+            <ul class="mt-6 space-y-4">
+              <li class="flex gap-3 text-slate-700"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-rose-500"></span>Teknisyen WhatsApp'tan dağınık not atar</li>
+              <li class="flex gap-3 text-slate-700"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-rose-500"></span>Ofis raporu sonradan toparlar</li>
+              <li class="flex gap-3 text-slate-700"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-rose-500"></span>Eksik bilgi için tekrar arama gerekir</li>
+              <li class="flex gap-3 text-slate-700"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-rose-500"></span>Teklif çıkacak işler unutulabilir</li>
+              <li class="flex gap-3 text-slate-700"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-rose-500"></span>Bakım takip kaydı ayrı yerde kalır</li>
+            </ul>
+          </div>
+          <div class="rounded-lg border border-blue-200 bg-blue-50 p-6" data-reveal data-reveal-delay="100">
+            <h3 class="font-display text-2xl font-semibold text-ink">DE Digital ile</h3>
+            <ul class="mt-6 space-y-4">
+              <li class="flex gap-3 text-slate-800"><svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>Teknisyen kısa not girer</li>
+              <li class="flex gap-3 text-slate-800"><svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>AI raporu yapılandırır</li>
+              <li class="flex gap-3 text-slate-800"><svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>Müşteri özeti hazır çıkar</li>
+              <li class="flex gap-3 text-slate-800"><svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>Teklif notu oluşur</li>
+              <li class="flex gap-3 text-slate-800"><svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>Takip kaydı güncellenir</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ornek" class="border-y border-slate-200 bg-ink py-20 text-slate-300 sm:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="max-w-3xl" data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-accent-light">Örnek demo</p>
+          <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">Örnek çıktı</h2>
+        </div>
+        <div class="mt-12 grid gap-6 lg:grid-cols-[0.82fr_1.18fr]">
+          <div class="rounded-lg border border-white/10 bg-white/[0.04] p-6" data-reveal>
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">Girdi</p>
+            <p class="mt-4 text-lg leading-relaxed text-slate-200">
+              "ABC Plaza'da yangın algılama bakımı yapıldı. 24 dedektör test edildi. 2 dedektör arızalı. Zone 3 hata veriyor. Panel bataryası zayıf. Müşteriye dedektör ve batarya değişimi için teklif hazırlanacak. Sonraki bakım 6 ay sonra."
+            </p>
+          </div>
+          <div class="rounded-lg border border-white/10 bg-white/[0.04] p-6" data-reveal data-reveal-delay="100">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">Çıktı</p>
+            <div class="mt-5 grid gap-5 md:grid-cols-2">
+              <div>
+                <h3 class="font-display text-xl font-semibold text-white">Servis raporu</h3>
+                <ul class="mt-3 space-y-2 text-sm leading-relaxed text-slate-300">
+                  <li><span class="font-semibold text-white">Firma:</span> ABC Plaza</li>
+                  <li><span class="font-semibold text-white">Sistem:</span> Yangın algılama</li>
+                  <li><span class="font-semibold text-white">İş tipi:</span> Periyodik bakım</li>
+                  <li><span class="font-semibold text-white">Yapılan işlemler:</span> 24 dedektör test edildi, panel kontrol edildi</li>
+                  <li><span class="font-semibold text-white">Tespitler:</span> 2 dedektör arızalı, Zone 3 hata veriyor, panel bataryası zayıf</li>
+                  <li><span class="font-semibold text-white">Önerilen aksiyon:</span> Dedektör ve batarya değişimi için teklif hazırlanacak</li>
+                  <li><span class="font-semibold text-white">Sonraki bakım:</span> 6 ay sonra</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="font-display text-xl font-semibold text-white">Müşteri özeti</h3>
+                <p class="mt-3 text-sm leading-relaxed text-slate-300">
+                  "Bugün yapılan bakımda yangın algılama sisteminiz genel olarak kontrol edilmiştir. Kontrol sırasında 2 dedektörde arıza, Zone 3 hattında hata ve panel bataryasında zayıflık tespit edilmiştir. Gerekli değişimler için teklif paylaşacağız."
+                </p>
+                <h3 class="mt-6 font-display text-xl font-semibold text-white">İç teklif notu</h3>
+                <p class="mt-3 text-sm leading-relaxed text-slate-300">"2 dedektör değişimi + panel bataryası değişimi için teklif hazırlanacak."</p>
+                <h3 class="mt-6 font-display text-xl font-semibold text-white">Takip kaydı</h3>
+                <ul class="mt-3 space-y-2 text-sm leading-relaxed text-slate-300">
+                  <li><span class="font-semibold text-white">Durum:</span> Teklif hazırlanacak</li>
+                  <li><span class="font-semibold text-white">Sorumlu:</span> Servis / satış</li>
+                  <li><span class="font-semibold text-white">Son temas:</span> Bugün</li>
+                  <li><span class="font-semibold text-white">Sonraki aksiyon:</span> Teklif gönder</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pilot" class="scroll-mt-24 bg-white py-20 sm:py-24">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-accent">Pilot paket</p>
+          <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">İlk kurulum pilot olarak başlar</h2>
+          <p class="mt-5 text-lg leading-relaxed text-slate-600">
+            Sistemi önce firmanızın gerçek servis/bakım akışına göre küçük bir pilotla kuruyoruz. Rapor şablonları, müşteri mesajları ve takip kayıtları sizin iş dilinize göre uyarlanır.
+          </p>
+          <p class="mt-4 font-semibold text-ink">İlk pilot firmalara özel kurulum için görüşelim.</p>
+          <a href="mailto:info@dedigital.dev?subject=AI%20Servis%20Raporu%20Pilot%20Gorusmesi&body=Merhaba%2C%20AI%20servis%20raporu%20ve%20bakim%20takip%20sistemi%20icin%20pilot%20gorusmesi%20talep%20ediyorum."
+             class="mt-8 inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3.5 text-base font-semibold text-white transition hover:bg-blue-700 active:scale-[0.98]">
+            Pilot Görüşmesi Al
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-arrow"/></svg>
           </a>
-          <a href="#cozumler"
-             class="group inline-flex items-center gap-2 py-3.5 text-base font-semibold text-zinc-300 transition-colors hover:text-white">
-            Çözümleri Gör
-            <svg class="h-4 w-4 text-accent transition-transform duration-300 group-hover:translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>
-            </svg>
-          </a>
         </div>
-        <ul class="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-zinc-400">
-          <li class="flex items-center gap-2">
-            <svg class="h-4 w-4 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-            </svg>
-            Kurulum 1–2 hafta
-          </li>
-          <li class="flex items-center gap-2">
-            <svg class="h-4 w-4 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
-            </svg>
-            Aynı gün teklif
-          </li>
-          <li class="flex items-center gap-2">
-            <svg class="h-4 w-4 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>
-            </svg>
-            Tuzla / İstanbul
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Tanıdık geliyor mu -->
-    <section class="border-t border-white/5 py-20 sm:py-24">
-      <div class="mx-auto max-w-6xl px-5 sm:px-8">
-        <div class="max-w-2xl" data-reveal>
-          <h2 class="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">Bunlar tanıdık geliyor mu?</h2>
-        </div>
-        <ul class="mt-12 grid gap-8 md:grid-cols-3">
-          <li class="flex items-start gap-3" data-reveal>
-            <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-            </svg>
-            <p class="leading-relaxed text-zinc-400">Teklif hazırlamak saatlerinizi alıyor.</p>
-          </li>
-          <li class="flex items-start gap-3" data-reveal data-reveal-delay="100">
-            <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>
-            </svg>
-            <p class="leading-relaxed text-zinc-400">Müşteri takibi defterde, Excel'de ve akılda — kim cevap bekliyor, belli değil.</p>
-          </li>
-          <li class="flex items-start gap-3" data-reveal data-reveal-delay="200">
-            <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M8.7 3A6 6 0 0 1 18 8a21.3 21.3 0 0 0 .6 5"/><path d="M17 17H3s3-2 3-9a4.67 4.67 0 0 1 .3-1.7"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><path d="m2 2 20 20"/>
-            </svg>
-            <p class="leading-relaxed text-zinc-400">Bakım, randevu ve ödeme hatırlatmaları araya kaynıyor.</p>
-          </li>
-        </ul>
-        <p class="mt-10 font-display text-lg font-semibold text-accent" data-reveal>Bunların hepsi otomatikleşebilir.</p>
-      </div>
-    </section>
-
-    <!-- Çözümler -->
-    <section id="cozumler" class="scroll-mt-20 border-t border-white/5 py-24 sm:py-32">
-      <div class="mx-auto max-w-6xl px-5 sm:px-8">
-        <div class="max-w-2xl" data-reveal>
-          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Çözümler</p>
-          <h2 class="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">Neyi otomatikleştiriyoruz?</h2>
-          <p class="mt-4 leading-relaxed text-zinc-400">Her sistem tek bir hedefe odaklanır: ekibinizin vaktini yiyen işi sırtınızdan almak.</p>
-        </div>
-        <div class="mt-14 grid gap-6 md:grid-cols-2">
-          <article data-reveal class="rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-white/[0.05] hover:shadow-[0_16px_40px_-16px_rgba(59,130,246,0.4)]">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
-              </svg>
-            </div>
-            <h3 class="mt-6 font-display text-xl font-semibold text-white">WhatsApp &amp; Müşteri Karşılama</h3>
-            <p class="mt-3 leading-relaxed text-zinc-400">Gelen her mesaj ve fiyat sorusu otomatik kayda geçer; hazır akışlarla hiçbir talep cevapsız kalmaz.</p>
-          </article>
-          <article data-reveal data-reveal-delay="100" class="rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-white/[0.05] hover:shadow-[0_16px_40px_-16px_rgba(59,130,246,0.4)]">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>
-              </svg>
-            </div>
-            <h3 class="mt-6 font-display text-xl font-semibold text-white">Teklif Otomasyonu</h3>
-            <p class="mt-3 leading-relaxed text-zinc-400">Müşteri bilgisini girin; markalı PDF teklifiniz dakikalar içinde hazırlanıp WhatsApp veya e-postayla gitsin.</p>
-          </article>
-          <article data-reveal data-reveal-delay="200" class="rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-white/[0.05] hover:shadow-[0_16px_40px_-16px_rgba(59,130,246,0.4)]">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>
-              </svg>
-            </div>
-            <h3 class="mt-6 font-display text-xl font-semibold text-white">Müşteri Takip Sistemi</h3>
-            <p class="mt-3 leading-relaxed text-zinc-400">Kim aradı, kime teklif gitti, kim cevap bekliyor — defter yerine tek ekran. Takip zamanı gelince sistem sizi uyarır.</p>
-          </article>
-          <article data-reveal data-reveal-delay="300" class="rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-white/[0.05] hover:shadow-[0_16px_40px_-16px_rgba(59,130,246,0.4)]">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/>
-              </svg>
-            </div>
-            <h3 class="mt-6 font-display text-xl font-semibold text-white">Hatırlatma Motoru</h3>
-            <p class="mt-3 leading-relaxed text-zinc-400">Periyodik bakım, randevu ve ödeme hatırlatmaları otomatik gider. Siz unutsanız da sistem unutmaz.</p>
-          </article>
+        <div class="rounded-lg border border-slate-200 bg-slate-50 p-6" data-reveal data-reveal-delay="100">
+          <h3 class="font-display text-2xl font-semibold text-ink">Pilot kapsamı</h3>
+          <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+            <li class="flex gap-3 text-slate-700"><svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>Firma özel servis raporu şablonu</li>
+            <li class="flex gap-3 text-slate-700"><svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>AI çıktı formatı</li>
+            <li class="flex gap-3 text-slate-700"><svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>Müşteri özeti şablonu</li>
+            <li class="flex gap-3 text-slate-700"><svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>İç teklif notu şablonu</li>
+            <li class="flex gap-3 text-slate-700"><svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>Bakım takip modülü</li>
+            <li class="flex gap-3 text-slate-700"><svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>14 gün kullanım desteği</li>
+            <li class="flex gap-3 text-slate-700 sm:col-span-2"><svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-check"/></svg>Demo veri veya gerçek örneklerle test</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Kimlerle çalışıyoruz -->
-    <section class="border-t border-white/5 py-20 sm:py-24">
-      <div class="mx-auto max-w-4xl px-5 text-center sm:px-8" data-reveal>
-        <h2 class="font-display text-2xl font-bold tracking-tight text-white sm:text-3xl">Kimlerle çalışıyoruz?</h2>
-        <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-zinc-400">Teknik servis firmaları, klinikler ve muayenehaneler, eğitim kurumları, e-ticaret satıcıları, toptancı ve bayiler... <span class="font-semibold text-white">Tekrar eden işi olan her KOBİ.</span></p>
-      </div>
-    </section>
-
-    <!-- Nasıl çalışıyoruz -->
-    <section id="surec" class="scroll-mt-20 border-t border-white/5 py-24 sm:py-32">
-      <div class="mx-auto max-w-6xl px-5 sm:px-8">
-        <div class="max-w-2xl" data-reveal>
-          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Süreç</p>
-          <h2 class="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">Nasıl çalışıyoruz?</h2>
-          <p class="mt-4 leading-relaxed text-zinc-400">Karmaşık süreçler yok. Keşiften kuruluma üç adım.</p>
-        </div>
-        <ol class="mt-14 grid gap-10 md:grid-cols-3">
-          <li class="relative" data-reveal>
-            <svg class="absolute right-[-1.875rem] top-2 hidden h-5 w-5 text-zinc-600 md:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-            </svg>
-            <span class="font-display text-4xl font-bold text-accent">01</span>
-            <h3 class="mt-5 font-display text-lg font-semibold text-white">15 dakikalık keşif</h3>
-            <p class="mt-2 leading-relaxed text-zinc-400">WhatsApp'tan yazın; hangi işler vaktinizi yiyor, birlikte bakalım. Ücretsiz.</p>
-          </li>
-          <li class="relative" data-reveal data-reveal-delay="100">
-            <svg class="absolute right-[-1.875rem] top-2 hidden h-5 w-5 text-zinc-600 md:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-            </svg>
-            <span class="font-display text-4xl font-bold text-accent">02</span>
-            <h3 class="mt-5 font-display text-lg font-semibold text-white">Aynı gün teklif</h3>
-            <p class="mt-2 leading-relaxed text-zinc-400">Kapsamı ve fiyatı aynı gün netleştirip yazılı teklifinizi gönderiyoruz.</p>
-          </li>
-          <li data-reveal data-reveal-delay="200">
-            <span class="font-display text-4xl font-bold text-accent">03</span>
-            <h3 class="mt-5 font-display text-lg font-semibold text-white">Kurulum ve destek</h3>
-            <p class="mt-2 leading-relaxed text-zinc-400">Sisteminiz 1–2 haftada çalışır halde teslim; sonrasında da yanınızdayız.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- Son CTA -->
-    <section class="border-t border-white/5 py-24 sm:py-32">
+    <section id="sss" class="scroll-mt-24 border-y border-slate-200 bg-slate-50 py-20 sm:py-24">
       <div class="mx-auto max-w-4xl px-5 sm:px-8">
-        <div class="relative overflow-hidden rounded-3xl border border-accent/20 bg-white/[0.03] px-8 py-14 text-center sm:px-14" data-reveal>
-          <div class="pointer-events-none absolute left-1/2 top-[-10rem] h-[20rem] w-[30rem] -translate-x-1/2 rounded-full bg-accent-light/20 blur-[100px]" aria-hidden="true"></div>
-          <h2 class="relative font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">Hangi işleriniz otomatikleşebilir, 15 dakikada konuşalım</h2>
-          <p class="relative mx-auto mt-4 max-w-xl leading-relaxed text-zinc-400">Bize yazın; aynı gün net kapsam ve fiyatla dönüş yapalım.</p>
-          <a href="https://wa.me/905411332042?text=Merhaba%2C%20i%C5%9Fletmem%20i%C3%A7in%20otomasyon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener"
-             class="relative mt-8 inline-flex items-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-base font-semibold text-ink transition hover:bg-accent-light active:scale-[0.98]">
-            <svg class="h-5 w-5" fill="currentColor" aria-hidden="true"><use href="#icon-wa"/></svg>
-            WhatsApp'tan Teklif Al<span class="sr-only"> (yeni sekmede açılır)</span>
+        <div data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-accent">SSS</p>
+          <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Sık sorulan sorular</h2>
+        </div>
+        <div class="mt-10 divide-y divide-slate-200 rounded-lg border border-slate-200 bg-white" data-reveal data-reveal-delay="100">
+          <details class="group p-5" open>
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-semibold text-ink">
+              Bu genel bir servis takip programı mı?
+              <svg class="h-5 w-5 shrink-0 text-accent transition-transform" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-plus"/></svg>
+            </summary>
+            <p class="mt-4 leading-relaxed text-slate-600">Hayır. Genel servis takip yazılımlarının yerine geçmek zorunda değildir. DE Digital, servis sonrası rapor, müşteri özeti, teklif notu ve bakım takip kaydı oluşturmayı hızlandıran AI destekli bir katman kurar.</p>
+          </details>
+          <details class="group p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-semibold text-ink">
+              WhatsApp mesajlarını otomatik mi gönderiyor?
+              <svg class="h-5 w-5 shrink-0 text-accent transition-transform" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-plus"/></svg>
+            </summary>
+            <p class="mt-4 leading-relaxed text-slate-600">İlk kurulumda sistem müşteriye gönderilecek mesajı hazırlar. Gönderim süreci firmanın tercihine göre manuel veya mevcut WhatsApp düzeniyle yürütülebilir. Otomatik gönderim ayrı değerlendirilir.</p>
+          </details>
+          <details class="group p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-semibold text-ink">
+              Teknisyenlerin yeni uygulama öğrenmesi gerekir mi?
+              <svg class="h-5 w-5 shrink-0 text-accent transition-transform" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-plus"/></svg>
+            </summary>
+            <p class="mt-4 leading-relaxed text-slate-600">Amaç süreci mümkün olduğunca basit tutmaktır. Teknisyen kısa bir not girer; sistem rapor ve takip kaydını oluşturur.</p>
+          </details>
+          <details class="group p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-semibold text-ink">
+              AI yanlış rapor yazar mı?
+              <svg class="h-5 w-5 shrink-0 text-accent transition-transform" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-plus"/></svg>
+            </summary>
+            <p class="mt-4 leading-relaxed text-slate-600">AI çıktıları kontrol edilerek kullanılmalıdır. Sistem rapor hazırlama ve takip sürecini hızlandırmak için tasarlanır; son kontrol firma ekibindedir.</p>
+          </details>
+          <details class="group p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-semibold text-ink">
+              Hangi sektörlere uygundur?
+              <svg class="h-5 w-5 shrink-0 text-accent transition-transform" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-plus"/></svg>
+            </summary>
+            <p class="mt-4 leading-relaxed text-slate-600">İlk odak yangın algılama, gaz algılama, yangın söndürme ve teknik bakım firmalarıdır. Benzer periyodik servis süreçleri olan firmalara da uyarlanabilir.</p>
+          </details>
+          <details class="group p-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-semibold text-ink">
+              Kurulum ne kadar sürer?
+              <svg class="h-5 w-5 shrink-0 text-accent transition-transform" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-plus"/></svg>
+            </summary>
+            <p class="mt-4 leading-relaxed text-slate-600">Pilot kurulum genellikle birkaç gün içinde hazırlanabilir. Firma özel rapor şablonu, takip alanları ve örnek servis notları üzerinden düzenleme yapılır.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-20 sm:py-24">
+      <div class="mx-auto max-w-5xl px-5 text-center sm:px-8" data-reveal>
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-accent">Demo görüşmesi</p>
+        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">Servis raporlarınız ve bakım takipleriniz dağınık kalmasın</h2>
+        <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
+          Teknisyen notlarından servis raporu, müşteri özeti, teklif notu ve takip kaydı üretmeyi firmanızın iş akışına göre birlikte test edelim.
+        </p>
+        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <a href="mailto:info@dedigital.dev?subject=AI%20Servis%20Raporu%20Demo%20Gorusmesi&body=Merhaba%2C%20AI%20servis%20raporu%20ve%20bakim%20takip%20sistemi%20icin%20demo%20gorusmesi%20talep%20ediyorum."
+             class="inline-flex items-center justify-center gap-2 rounded-md bg-ink px-6 py-3.5 text-base font-semibold text-white transition hover:bg-slate-800 active:scale-[0.98]">
+            Demo Görüşmesi Al
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-arrow"/></svg>
+          </a>
+          <a href="https://wa.me/905411332042?text=Merhaba%2C%20AI%20servis%20raporu%20ve%20bak%C4%B1m%20takip%20sistemi%20i%C3%A7in%20demo%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center gap-2 rounded-md border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-ink transition hover:border-accent hover:text-accent active:scale-[0.98]">
+            <svg class="h-5 w-5 text-[#25D366]" fill="currentColor" aria-hidden="true"><use href="#icon-wa"/></svg>
+            WhatsApp'tan Yaz<span class="sr-only"> (yeni sekmede açılır)</span>
           </a>
         </div>
       </div>
@@ -279,49 +587,49 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-white/5 py-12 pb-28 md:pb-12">
-    <div class="mx-auto max-w-6xl px-5 sm:px-8">
-      <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-        <div class="max-w-sm">
-          <a href="#top" class="inline-flex items-center" aria-label="DE Digital — sayfanın başına dön">
+  <footer class="border-t border-slate-200 bg-ink py-12 pb-28 text-slate-300 md:pb-12">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="grid gap-10 md:grid-cols-[1fr_auto] md:items-start">
+        <div class="max-w-md">
+          <a href="#top" class="inline-flex items-center" aria-label="DE Digital - sayfanın başına dön">
             <img src="assets/logo.png" alt="DE Digital" width="500" height="440" loading="lazy" decoding="async" class="h-10 w-auto">
           </a>
-          <p class="mt-4 leading-relaxed text-zinc-400">KOBİ'ler için teklif, takip ve hatırlatma otomasyonları kuran dijital sistem stüdyosu.</p>
+          <p class="mt-4 leading-relaxed text-slate-400">
+            Yangın ve teknik servis firmaları için AI destekli servis raporu, teknik servis raporu otomasyonu ve bakım takip sistemi kuran dar odaklı dijital sistem firması.
+          </p>
         </div>
         <ul class="space-y-4">
           <li>
-            <a href="mailto:info@dedigital.dev" class="inline-flex items-center gap-3 text-zinc-400 transition hover:text-white">
-              <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <a href="mailto:info@dedigital.dev" class="inline-flex items-center gap-3 text-slate-400 transition hover:text-white">
+              <svg class="h-5 w-5 text-accent-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
               </svg>
               info@dedigital.dev
             </a>
           </li>
           <li>
-            <a href="https://instagram.com/dedigital.dev" target="_blank" rel="noopener" class="inline-flex items-center gap-3 text-zinc-400 transition hover:text-white">
-              <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <a href="https://instagram.com/dedigital.dev" target="_blank" rel="noopener" class="inline-flex items-center gap-3 text-slate-400 transition hover:text-white">
+              <svg class="h-5 w-5 text-accent-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
               </svg>
               @dedigital.dev<span class="sr-only"> (yeni sekmede açılır)</span>
             </a>
           </li>
           <li>
-            <a href="https://wa.me/905411332042?text=Merhaba%2C%20i%C5%9Fletmem%20i%C3%A7in%20otomasyon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" class="inline-flex items-center gap-3 text-zinc-400 transition hover:text-white">
-              <svg class="h-5 w-5 text-accent" fill="currentColor" aria-hidden="true"><use href="#icon-wa"/></svg>
+            <a href="https://wa.me/905411332042?text=Merhaba%2C%20AI%20servis%20raporu%20ve%20bak%C4%B1m%20takip%20sistemi%20i%C3%A7in%20demo%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener" class="inline-flex items-center gap-3 text-slate-400 transition hover:text-white">
+              <svg class="h-5 w-5 text-accent-light" fill="currentColor" aria-hidden="true"><use href="#icon-wa"/></svg>
               WhatsApp'tan yazın<span class="sr-only"> (yeni sekmede açılır)</span>
             </a>
           </li>
         </ul>
       </div>
-      <p class="mt-10 border-t border-white/5 pt-6 text-sm text-zinc-400">© 2026 DE Digital. Tüm hakları saklıdır.</p>
+      <p class="mt-10 border-t border-white/10 pt-6 text-sm text-slate-500">© 2026 DE Digital. Tüm hakları saklıdır.</p>
     </div>
   </footer>
 
-  <!-- Mobil sabit WhatsApp butonu -->
-  <a href="https://wa.me/905411332042?text=Merhaba%2C%20i%C5%9Fletmem%20i%C3%A7in%20otomasyon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener"
+  <a href="https://wa.me/905411332042?text=Merhaba%2C%20AI%20servis%20raporu%20ve%20bak%C4%B1m%20takip%20sistemi%20i%C3%A7in%20demo%20g%C3%B6r%C3%BC%C5%9Fmesi%20yapmak%20istiyorum." target="_blank" rel="noopener"
      aria-label="WhatsApp üzerinden bize yazın (yeni sekmede açılır)"
-     class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-ink shadow-xl shadow-black/50 transition hover:scale-105 active:scale-95 md:hidden">
+     class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-ink shadow-lg shadow-slate-900/25 transition hover:scale-105 active:scale-95 md:hidden">
     <svg class="h-7 w-7" fill="currentColor" aria-hidden="true"><use href="#icon-wa"/></svg>
   </a>
 
